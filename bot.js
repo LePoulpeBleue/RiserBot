@@ -114,12 +114,12 @@ bot.on('message', message => {
         message.channel.send("Aurevoir");
     }
  
-    if (strmessage.includes("Lonner")){
-        message.channel.send("Jack Lonner la tapette en mini austin");
+    if (strmessage.includes("lonner")){
+        message.channel.send("Jack Lonner la tapette en mini austini");
     }
  
-    if (strmessage.includes("Jack")){
-        message.channel.send("Jack Lonner la tapette en mini austin");
+    if (strmessage.includes("jack")){
+        message.channel.send("Jack Lonner la tapette en mini austini");
     }
 
         if(strmessage.includes(".")){
