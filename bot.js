@@ -113,6 +113,10 @@ bot.on('message', message => {
         if(strmessage.includes("bonjour")){
         message.channel.send("Aurevoir");
     }
+ 
+    if (strmessage.includes("Jack")){
+        message.channel.send("Jack Lonner la tapette en mini austin");
+    }
 
         if(strmessage.includes(".")){
         message.channel.send("Parle pas pour rien");
