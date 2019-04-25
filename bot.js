@@ -109,18 +109,6 @@ bot.on('message', message => {
     if(strmessage.includes("salut")){
         message.channel.send("Aurevoir");
     }
- 
-     if(strmessage.startsWith(".ping")){
-        message.channel.send(({embed: {
-          color: 0x2ed32e,
-          fields: [{
-              name: "PING :",
-              value: "Le ping est de : " + Math.round(bot.ping) + ' ms.'
-        }
-       ],
-       }
-      }));
-    }
 
         if(strmessage.includes("bonjour")){
         message.channel.send("Aurevoir");
