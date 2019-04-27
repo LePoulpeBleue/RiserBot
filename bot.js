@@ -56,6 +56,59 @@ bot.on('message', message => {
             message.channel.send({embed: pancake_embed});
         }
     }
+        if(strmMessage.startsWith("<day")){
+        if(data.daily === new Date().getDay()){
+            var pancake_embed = new Discord.RichEmbed()
+                .setTitle(`${message.author.username}`)
+                .setDescription("Vous avez deja effectuer cette commande ce jour ci!")
+            message.channel.send({embed: pancake_embed});
+        }else{
+            var dataJSON = localStorage.getItem(msgAuthorId + ".json");
+            var data = JSON.parse(dataJSON);
+            data = {
+                pseudo: msgAuthor,
+                hour: new Date().getHours(),
+                day: new Date().getDay(),
+                pancakes: data.pancakes + 1000
+            }
+            dataJSON = JSON.stringify(data);
+            localStorage.setItem(msgAuthorId + ".json", dataJSON);
+            var pancake_embed = new Discord.RichEmbed()
+                .setTitle(`${message.author.username}`)
+                .setDescription("Vous avez gagner 1000 pancakes!")
+            message.channel.send({embed: pancake_embed});
+        }
+    }
+    if(strmMessage.startsWith("<slot")){
+        var dataJSON = localStorage.getItem(msgAuthorId + ".json");
+        var data = JSON.parse(dataJSON);
+        var luck = new getRandomInt(1);
+        if(luck === 1){
+            data = {
+                pseudo: msgAuthor,
+                hour: new Date().getHours(),
+                day: new Date().getDay(),
+                pancakes: data.pancakes -100
+            }
+            var pancake_embed = new Discord.RichEmbed()
+            .setTitle(`${message.author.username}`)
+            .setDescription("Vous avez perdu 100 pancakes!")
+        message.channel.send({embed: pancake_embed});
+        }else{
+            data = {
+                pseudo: msgAuthor,
+                hour: new Date().getHours(),
+                day: new Date().getDay(),
+                pancakes: data.pancakes +100
+            }
+            var pancake_embed = new Discord.RichEmbed()
+            .setTitle(`${message.author.username}`)
+            .setDescription("Vous avez gagner 100 pancakes!")
+        message.channel.send({embed: pancake_embed});
+        }
+        dataJSON = JSON.stringify(data);
+        localStorage.setItem(msgAuthorId + ".json", dataJSON);
+    }
     if(strmMessage.startsWith("<pancakes")){
         var pancake = data.pancakes;
         var pancake_embed = new Discord.RichEmbed()
